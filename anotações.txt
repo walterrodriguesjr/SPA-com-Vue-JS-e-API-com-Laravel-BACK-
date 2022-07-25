@@ -139,8 +139,116 @@ https://www.udemy.com/course/spa-com-vue-js/learn/lecture/9050544#overview
 		composer update 
 
 
-26- Configurando a Autenticação via Token
+26-Configurando a Autenticação via Token
+	instalando a biblioteca laravel/passport que serve para utilizar o sistema auth via token 
+		utilizado o personal access tokens 
+			composer require laravel/passport "4.0" (vai ter erro pedindo versão específica de pacotes)
+	configurando o banco de dados 
+		utilizando o sqlite 
+			configurando no .env 
+	rodar as migration 
+		php artisan migrate (desbloquear: extension=pdo_sqlite)
+			as migrations irão para o arquivo criado: database.sqlite 
+	instalar o passport 
+		php artisan passport:install
+	colocar no User: 
+		importar para app/User 
+			use Laravel\Passport\HasApiTokens;
+			adicionar: use HasApiTokens, Notifiable; 
+			configurar o: config/auth 
+				'api' => [
+					'driver' => 'passport',
+					'provider' => 'users',
+				]	
+	a partir disto, rodando o: php artisan serve 
+		em localhost:8000 já está acessivel o laravel 
+
+
+27-Utilizando o Postman
+	criar rotas de cadastro e de login e depois testar o acesso com token 
+	baixar o postman 
+		https://www.postman.com/downloads/
+	realizado testes de get e post em uma API teste 
+
+
+28-Criando o Cadastro
+	foi criado a rota '/cadastro', post, para criar usuarios (passando name,email e password)
+
+
+29-Retornando o Token no Cadastro
+	criado a lógica para criar o token e retornar o token do usuário 
+		*erro: Laravel\Passport\Bridge\AccessToken::__toString() must not throw an exception
+		*solução: Fazer o downgrade do lcobucci/jwt para a versão 3.3 com o comando:
+			composer require lcobucci/jwt 3.3.3
+
+
+30-Validação no Cadastro
+	a biblioteca 'Validator' foi incluída em API 
+	feito os testes de validação 
+
+
+31-Traduzindo Erros de Validação
+	criado uma pasta pt-br na pasta lang em resources.
+		dentro da pasta-pt-br foi copiado os arquivos necessários para tradução 
+		em seguida altera a language em config/app.php 
+
+
+32-Método de Login na API
+	criado a rota de login e feito as logicas de validação e retorno 
+
+
+33-Http com Axios no Vue JS
+	configurado as propriedades e metodos para realizar o login em Login.vue 
+	axios: serve para consumir API 
+		instalando o axios 
+			npm install axios --save 
+		importar o axios 
+			import axios from 'axios';
+		maneira de fazer uma requisição via POST com axios 
+			axios.post(`url da API`, {
+				body: this.postBody
+			})
+				.then(response => {})
+				.catch(e => {
+				this.errors.push(e)
+			})
+	utilizar o plugin 'access control allow origin extension' para evitar o ero de acesso da API, pelo fato de estar usando servidores locais 
+		serve para habilitar o 'cross-origin', configura direto do google chrome CORS
+	utilizado a solução de perguntas da aula, criado o middleware CORS 
+
+
+34-Lógica para Retorno do login
+	feito as condicionais de validação em Login.vue 
+
+
+35-Exibindo os Erros
+	criado as lógicas de retornos de erros ao usuário, usando alert 
+		erros de login inválido, de login não existe e de servidor fora do ar 
+
+
+36-Preparando o sistema de Login - Parte 1
+	utilizando o SessionStorage para permanecer os dados de login, caso haja sucesso 
+	criado as lógicas para quando logar ou deslogar, aconteça alterações de tela, como o sair 
+
+
+37-Preparando o sistema de Login - Parte 2 
+	implementado o sistema que, se caso estiver logado, não vai para tela de login ou cadastro 
+
+
+38-
+
 	
+
+
+	
+			
+
+
+
+	
+
+	
+
 
 	
 
