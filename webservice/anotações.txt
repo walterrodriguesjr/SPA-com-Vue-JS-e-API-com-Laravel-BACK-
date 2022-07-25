@@ -1,0 +1,269 @@
+https://www.udemy.com/course/spa-com-vue-js/learn/lecture/9050544#overview
+
+1-Ferramentas utilizadas
+	HTML
+	CSS
+	Node 8.9.4 (que já instala o NPM)
+	vue.js no front-end 
+
+
+2-Instalando o Vue CLI
+	vue CLI é a ferramenta de linhas de comando do vue.js
+		npm install -g vue-cli	
+			instalado o vue 2.9.6 
+
+
+3-Criando o Projeto
+	vue init webpack social (webpack é o nome padrão do tipo do projeto / social é o nome dado ao projeto)
+		instala o pacote padrão da aplicação vue, com pasta de components, router etc...
+		em seguida roda com npm run dev e entra no localhost indicado no cmd 
+
+
+4-Código Fonte das Aulas
+	ok
+
+
+5-Diretórios do Projeto
+	explicação dos diretórios 
+	apagado helloworld
+	criado a página home e configurada sua rota 
+
+
+6-Exemplo com Script Externo
+	explicado que, inserindo links CSS ou script em static/index, as inserções ficam globais no projeto 
+
+
+7-Código de Produção
+	utilizando o npm run build , para compilar o projeto, gerando a pasta dist (distribuição)
+		para envio do código, sempre se envia a pasta dist (distribuição) e testa acessando via cmd e 
+			usando um servidor local; php -S localhost:8000
+		na pasta dist, os arquivos estarão todos minificados 
+		
+
+8-Configurando o Materialize
+	instalado o materialize com seus arquivos css e js, bem como o jquery 
+
+
+9- Configurando com AdminLTE
+	implementado o template do AdminLTE com as bibliotecas necessárias na pasta 'static'
+
+
+10-Componente NavBar
+	implementando o NavBar.vue, nele foi explicado como configurar e exportar para o App.vue 
+		foi também explicado o uso de bind ":" com 'props' antes da class ou entre {{}}, podendo customizar 
+			o componente
+
+	
+11-Rodapé
+	implementando o FooterVue.vue, nele foi explicado como configurar e exportar para o App.vue 
+		foi também explicado o uso de bind ":" com 'props' antes da class ou entre {{}}, podendo customizar 
+			o componente
+
+
+12-Sistema de Grid
+	implementando o GridVue.vue, nele foi explicado como configurar e exportar para o App.vue 
+		foi também explicado o uso de bind ":" com 'props' antes da class ou entre {{}}, podendo customizar 
+			o componente. O sistema de grid do materialize é semelhante ao do bootstrap, mudando apenas
+				a semântica 
+
+
+13-Preparando o Menu Lateral
+	implementando o CardMenuVue.vue, nele foi explicado como configurar e exportar para o App.vue 
+		foi também explicado o uso de bind ":" com 'props' antes da class ou entre {{}}, podendo customizar 
+			o componente. O sistema de grid do materialize é semelhante ao do bootstrap, mudando apenas
+				a semântica 
+
+
+14-Cartão de Conteúdo - Parte 1
+	implementando o CardConteudoVue.vue, nele foi explicado como configurar e exportar para o App.vue 
+		foi também explicado o uso de bind ":" com 'props' antes da class ou entre {{}}, podendo customizar 
+			o componente. O sistema de grid do materialize é semelhante ao do bootstrap, mudando apenas
+				a semântica 
+
+
+15-Cartão de Conteúdo - Parte 2
+	complementado a primeira aula, deixando os props do componente dinâmico 
+
+
+16-Componente de detalhe do conteúdo
+	implementando o CardDetalheVue.vue, nele foi explicado como configurar e exportar para o App.vue 
+		foi também explicado o uso de bind ":" com 'props' antes da class ou entre {{}}, podendo customizar 
+			o componente. O sistema de grid do materialize é semelhante ao do bootstrap, mudando apenas
+				a semântica 
+
+
+17- Campo para Publicar Conteúdos
+	criado o input e o button de adicionar publicação em Home.vue, feito as configurações de grid 
+
+
+18-Componente de Publicar Conteúdos
+	o campo de inserir publicação foi transformado em componente, chamado PublicarConteudoVue, foi 
+		feito a lógica para que, o botão de publicar só apareça quando o input já não esteja vazio 
+
+
+19-Sistema de Templates
+	explicado sobre o ssitema de API que será usado e sobre o sistema de login via token 
+	aplicado o sistema de templates incluindo o login 
+
+
+20-Organizando com Slots
+	foi mostrado a facilidade de trabalhar com slots em vez de ficar refazendo código igual 
+	os slots permitem usar names para serem identificados 
+
+
+21-Otimizando o NavBar e links de Navegação
+	feito uso de template com o NavBar, bem como as otilizações nas url para que fique em SPA, um a '#'
+
+
+22-Url Amigáveis no Vue JS 
+	sem aparecer o '#' na url e ficar feio 
+	usa o mode: 'history', no sistema de rotas
+
+
+23-Formulário de Login e Cadastro
+	contruído o from de cadastro de novo usuário.
+	feito a lógica para acessar este formulário 
+
+
+24-Url Amigável para Login e Cadastro
+	Finalizado a primeira parte do front-ent. 
+	Template pronto
+
+
+(INICIANDO O BACK-END)
+25-Instalando o Laravel
+	bibliotecas do laravel (projeto padrão)
+		composer create-project --prefer-dist laravel/laravel webservice "5.5.*"
+	
+	atualizar o composer (pasta vendor)
+		composer update 
+
+
+26-Configurando a Autenticação via Token
+	instalando a biblioteca laravel/passport que serve para utilizar o sistema auth via token 
+		utilizado o personal access tokens 
+			composer require laravel/passport "4.0" (vai ter erro pedindo versão específica de pacotes)
+	configurando o banco de dados 
+		utilizando o sqlite 
+			configurando no .env 
+	rodar as migration 
+		php artisan migrate (desbloquear: extension=pdo_sqlite)
+			as migrations irão para o arquivo criado: database.sqlite 
+	instalar o passport 
+		php artisan passport:install
+	colocar no User: 
+		importar para app/User 
+			use Laravel\Passport\HasApiTokens;
+			adicionar: use HasApiTokens, Notifiable; 
+			configurar o: config/auth 
+				'api' => [
+					'driver' => 'passport',
+					'provider' => 'users',
+				]	
+	a partir disto, rodando o: php artisan serve 
+		em localhost:8000 já está acessivel o laravel 
+
+
+27-Utilizando o Postman
+	criar rotas de cadastro e de login e depois testar o acesso com token 
+	baixar o postman 
+		https://www.postman.com/downloads/
+	realizado testes de get e post em uma API teste 
+
+
+28-Criando o Cadastro
+	foi criado a rota '/cadastro', post, para criar usuarios (passando name,email e password)
+
+
+29-Retornando o Token no Cadastro
+	criado a lógica para criar o token e retornar o token do usuário 
+		*erro: Laravel\Passport\Bridge\AccessToken::__toString() must not throw an exception
+		*solução: Fazer o downgrade do lcobucci/jwt para a versão 3.3 com o comando:
+			composer require lcobucci/jwt 3.3.3
+
+
+30-Validação no Cadastro
+	a biblioteca 'Validator' foi incluída em API 
+	feito os testes de validação 
+
+
+31-Traduzindo Erros de Validação
+	criado uma pasta pt-br na pasta lang em resources.
+		dentro da pasta-pt-br foi copiado os arquivos necessários para tradução 
+		em seguida altera a language em config/app.php 
+
+
+32-Método de Login na API
+	criado a rota de login e feito as logicas de validação e retorno 
+
+
+33-Http com Axios no Vue JS
+	configurado as propriedades e metodos para realizar o login em Login.vue 
+	axios: serve para consumir API 
+		instalando o axios 
+			npm install axios --save 
+		importar o axios 
+			import axios from 'axios';
+		maneira de fazer uma requisição via POST com axios 
+			axios.post(`url da API`, {
+				body: this.postBody
+			})
+				.then(response => {})
+				.catch(e => {
+				this.errors.push(e)
+			})
+	utilizar o plugin 'access control allow origin extension' para evitar o ero de acesso da API, pelo fato de estar usando servidores locais 
+		serve para habilitar o 'cross-origin', configura direto do google chrome CORS
+	utilizado a solução de perguntas da aula, criado o middleware CORS 
+
+
+34-Lógica para Retorno do login
+	feito as condicionais de validação em Login.vue 
+
+
+35-Exibindo os Erros
+	criado as lógicas de retornos de erros ao usuário, usando alert 
+		erros de login inválido, de login não existe e de servidor fora do ar 
+
+
+36-Preparando o sistema de Login - Parte 1
+	utilizando o SessionStorage para permanecer os dados de login, caso haja sucesso 
+	criado as lógicas para quando logar ou deslogar, aconteça alterações de tela, como o sair 
+
+
+37-Preparando o sistema de Login - Parte 2 
+	implementado o sistema que, se caso estiver logado, não vai para tela de login ou cadastro 
+
+
+
+
+	
+
+
+	
+			
+
+
+
+	
+
+	
+
+
+	
+
+	
+
+
+	
+
+
+
+
+
+
+	
+
+
+		
+	
