@@ -235,7 +235,7 @@ https://www.udemy.com/course/spa-com-vue-js/learn/lecture/9050544#overview
 	implementado o sistema que, se caso estiver logado, não vai para tela de login ou cadastro 
 
 
-38-
+
 
 	
 
