@@ -235,6 +235,23 @@ https://www.udemy.com/course/spa-com-vue-js/learn/lecture/9050544#overview
 	implementado o sistema que, se caso estiver logado, não vai para tela de login ou cadastro 
 
 
+38-Implementando o Cadastro
+	finalizado os detalhes de logar e deslogar 
+	realizado a configuração e lógica de 'Cadastro' semelhante ao de Login, usando mesmo modelo 
+
+
+39-Tela de Perfil - Parte 1
+	criado e configurado: Perfil.vue (usou o Login.vue como modelo) e a rota em routes/index.js 
+
+
+40-Tela de Perfil - Parte 2
+	criado parte da parte de scripts em Perfil.vue, onde os dados do usuário já estão sendo trazidos para a tela
+
+
+41-Tela de Perfil - Parte 3
+	feito a lógica de requisição via token de dados do usuário, vindo da api.php /login para Login.vue via PUT 
+
+
 
 
 	
