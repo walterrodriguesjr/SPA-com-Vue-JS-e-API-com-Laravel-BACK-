@@ -252,7 +252,66 @@ https://www.udemy.com/course/spa-com-vue-js/learn/lecture/9050544#overview
 	feito a lógica de requisição via token de dados do usuário, vindo da api.php /login para Login.vue via PUT 
 
 
+42-Atualizando as informações do Perfil
+	reformuladas as lógicas de Perfil.vue e a API que é responsável por isso 
+	em route.api foi inserida a biblioteca 'use Illuminate\Validation\Rule;'
+	criada a lógica de atualização de nome e email em Perfil.vue e em api.php 
 
+
+43- Adicionando o Atributo de Imagem
+		criada uma migration para imagem incluindo a coluna imagem em users
+			php artisan make:migration add_imagem_table_users --table=users
+		rodado: php artisan migrate 
+		configurada a model User.php para reconhecer a alteração, inserido 'imagem'
+
+
+44-Preparando o Campo Imagem no Vue JS
+	criado e implementado o método: salvaImagem(e), paraenviar a imagem no back-end 
+
+
+45-Enviando a Imagem para o Servidor
+	feito a lógica em api.php de persistir a imagem na pasta 'storage' criando a pastal de cada usuario 
+
+
+46- Deletando Imagens Antigas
+	em api.web, foi criada uma lógica para que, quando inserida uma nova imagem de perfil, a antiga seja 
+		apagada 
+
+
+47-Validação de Imagem Base64
+	inserido a lógica em api.php, para validar o envio de imagem no perfil (não enviar arquivo zip, por exemplo) 
+
+
+48-Dados do Usuário na Tela Principal 
+	a lógica de created() foi trazida para view SiteTemplate.vue, em seguida podendo manipular dados do user 
+
+
+49-Imagem Padrão e Criando um Controle 
+	criado a lógica em api.web, lógica para fornecer uma imagem padrão de usuário quando criar conta 
+	criação de controller 
+		criado controller 'UsuarioController'
+			php artisan make:controller UsuarioController 
+			a lógica 'login' que estava direto na route de api, agora em controller 
+		
+
+50-Passando a lógica para os Controllers 
+	todas as demais routes de API foram criados controllers específicos, separando assim as responsabilidades 
+
+
+51-Configurando CORS no Laravel
+	Cors já configurado anteriormente 
+		AINDA DÚVIDAS!! 
+		ainda dependente do plugin cors, biblioteca não instalou 
+		
+	
+
+
+
+
+
+
+		
+	
 
 	
 
