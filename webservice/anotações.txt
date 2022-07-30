@@ -303,6 +303,52 @@ https://www.udemy.com/course/spa-com-vue-js/learn/lecture/9050544#overview
 		AINDA DÚVIDAS!! 
 		ainda dependente do plugin cors, biblioteca não instalou 
 		
+
+52-Modelando o Banco de Dados 
+	criando Model e Migration 
+		php artisan make:model Conteudo -m
+		php artisan make:model Comentario -m
+		php artisan make:migration create_amigos_table --create=amigos
+		php artisan make:migration create_curtidas_table --create=curtidas
+
+
+53-Definindo as Migrações
+		configurada a migration de 'conteudos'
+		configurada a migration de 'comentarios'
+		configurada a migration de 'amigos'
+		configurada a migration de 'curitidas'
+	em seguida as migration foram rodadas
+		php artisan migrate
+
+	
+54-Definindo os relacionamentos
+	implementado os relacionamentos nas Models de: user, Comentario e Conteudo 
+
+
+55-Modelo de como Adicionar Conteúdos
+	criada uma rota de testes em api.php 
+	testando os métodos de criação de conteudo 
+
+
+56-Modelo de como Adicionar Amigos
+	testes usando métodos attach, detach e toggle, para adicionar, remover amigos
+
+
+57-Modelo de como Adicionar Curtidas e Comentários
+	testes dos métodos de curitir e comentar 
+
+
+58-Definindo instância para o Axios e Url da API
+	Instanciando o axios e a url de localhost para variáveis
+	deixando o axios (usado para fazer requisições HTTP) de maneira global, em main.js (this.$http)
+	alterando a URL de requisiçãoes (onde por padrão estava a de localhost)
+
+
+59-Padronizando os Retornos da API
+	
+
+
+
 	
 
 

@@ -27,4 +27,28 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /* relacionamento de: um para muitos / um usuário terá muitos comentários */
+    /* retorna os comentários que este usuário fez */
+    public function comentarios(){
+        return $this->hasMany('App\Comentario');
+    }
+
+     /* relacionamento de: um para muitos / um usuário terá muitos conteudos */
+    /* retorna os conteudos que este usuário tem */
+    public function conteudos(){
+        return $this->hasMany('App\Conteudo');
+    }
+
+    /* relacionamento de: pertence a muitos/ muitos para muitos / muitos usuários deram muitas curtidas */
+    /* retorna as curtidas que o usuário já deu */
+    public function curtidas(){
+        return $this->belongsToMany('App\Conteudo', 'curtidas', 'user_id', 'conteudo_id');
+    }
+
+    /* relacionamento de: pertence a muitos/ muitos para muitos / muitos usuários tem muitos amigos */
+    /* retorna todos os amigos*/
+    public function amigos(){
+        return $this->belongsToMany('App\User', 'amigos', 'user_id', 'amigo_id');
+    }
 }
